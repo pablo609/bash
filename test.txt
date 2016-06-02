@@ -1,0 +1,7 @@
+Copyright (C) 2007 Free Software Foundation, Inc. 
+  To protect your rights, we need to prevent others from denying you
+these rights or asking you to surrender the rights.  Therefore, you have
+know their rights.
+  Developers that use the GNU GPL protect your rights with two steps:
+(1) assert copyright on the software, and (2) offer you this License
+  "Copyright" also means copyright-like laws that apply to other kinds of
