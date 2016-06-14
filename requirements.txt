@@ -1,0 +1,382 @@
+- Main Alternate Channel Switch Grant indicating the active channel URID, requesting console URID and alias, requesting console zone and site ID, and the Console URID targeted for station control refresh (same as requesting Console).
+1. Assigning an account lockout
+1. Site Type and the Site ID
+2. Changing the account lockout policy
+2. Subsite ID, for Simulcast or Multicast voting subsystem
+3. Changing the domain password policy
+A Channel Marker activated by one Dispatch Console User shall be allowed to be deactivated by parallel Dispatch Console User.
+After entering the fallback mode, the Console Subsystem shall retain the state of the station control features (e.g. Frequency, etc) for the affiliated conventional channel. 
+After receiving site mobility upload information from the IV&D Fixed Radio Sub-system, the  Zone Controller sub-system shall send a Group Affiliation Query OSP to the IV&D Fixed Radio Subsystem to any subscriber ID if the current Site Access Deny rules dictate that the subscriber ID would have been Site Access Denied/not allowed on the site. 
+After sending 1 Link Up Request for an SCP to a DSR Core, if a Link Up Grant is not received within the Link Up Request Timer value of 3 seconds, the IV&D Fixed Radio Subsystem shall treat that SCP's establishment with the Zone Controller Subsystem in that DSR Core as failed. 
+All devices at a Tsub prime site except VMS, CCGW and transport devices: [hostname].tsubYY.zoneZ
+All devices at a Tsub subsite except CCGW and transport devices: [hostname].subsiteXX.tsubYY.zoneZ
+All transport devices and CCGW at a Tsub prime site: [hostname].tsubYY
+All transport devices and CCGW at a Tsub subsite: [hostname].subsiteXX.tsubYY
+Analog conventional subscriber sourced truncation shall have an average of 130 ms or less with a 95% confidence level. 
+Analog conventional subscriber to Vortex console sourced audio throughput delay shall have an average of 245 ms or less with a 95% confidence level.
+Analog conventional subscriber to Vortex console system access time shall have an average of  375 ms or less with a 95% confidence level. 
+Based on:
+Call End By Out Of Service Request
+Conventional Channel Goes Out of Service with Console Subsystem
+Default Logon Banner:-
+During failover to Tsub local area operation, the IV&D Fixed Radio Subsystem shall holdoff on reporting a Site Trunking state change in the RFSS Status Broadcast message (control and voice channel) if a Tsub ZC is detected as accessible within Ti seconds (as defined below) of first losing Netcom connectivity (both SCPs) with the active Zone Core ZC.
+During recovery from Tsub local area operation, the IV&D Fixed Radio Subsystem shall monitor the link from the Zone Controller in the zone core in accordance with ICD-070 to ensure the link is stable before dropping the links to the Tsub Zone Controller.
+During transitions from system wide area to Tsub local area after Tsub ZC detection, the IV&D Fixed Radio Subsystem shall limit the Site Trunking indication holdoff duration to a maximum of Tf seconds (as defined below) unless otherwise configured for a longer duration via the Site Trunking Indication Holdoff Time parameter.
+During transitions from system wide area to Tsub local area after Tsub ZC detection, the IV&D Fixed Radio Subsystem shall limit the Site Trunking indication holdoff duration to a maximum of Tf seconds (as defined below) unless otherwise configured for a longer duration via the Site Trunking Indication Holdoff Time parameter. 
+For Late Entry scenario, upon receiving the first transcodable AMBE Half-Rate voice packet from a TDMA voice stream, the Transcoder in the Audio Subsystem  shall transcode and transmit the corresponding VHDR1 on its LAN interface within 15 + Roundup [(Network Jitter Buffer + 47.5) / 20} x 20ms on average with 95% confidence and Not to Exceed 27.5 + Roundup [(Network Jitter Buffer + 47.5) / 20} x 20ms.
+For Normal Entry scenario, upon receiving the first transcodable AMBE Half-Rate voice packet from a TDMA voice stream, the Transcoder in the Audio Subsystem  shall transcode and transmit the corresponding VHDR1 on its LAN interface within 15 + Roundup [(Network Jitter Buffer + 7.5) / 20] x 20ms on average with 95% confidence and Not to Exceed 27.5 + Roundup [(Network Jitter Buffer + 7.5) / 20] x 20ms.
+For Tsub trunking sites (non-HPD sites only), the subsystem shall extract the Tsub_ID value from the populated MIB-II SysName using rules specified  in R-SUB-2090-8187 and distribute the extracted value to the Zone Controller Subsystem.
+For a single-zone system, single-zone call, with the originating and the destination subscribers located at two different Non-Simulcast sites, the audio throughput delay for a transcoded FDMA-to-TDMA group call shall average 660ms or less with 95% confidence.
+For any single RADIUS client data change in a zone domain controller under normal operating conditions, the IP Services Subsystem shall replicate the changed data to all Tsub domain controllers within the same zone less than 30 minutes after the change.
+For any single authentication data change in a Tsub domain controller under normal operating conditions, the IP Services Subsystem shall replicate the changed data to all Tsub domain controllers in a different zone less than 60 minutes after the change.
+For any single authentication data change in a zone domain controller under normal operating conditions, the IP Services Subsystem shall replicate the changed data to all Tsub domain controllers in a different zone less than 45 minutes after the change.
+For any single authentication data change in a zone domain controller under normal operating conditions, the IP Services Subsystem shall replicate the changed data to all Tsub domain controllers in the same zone less than 45 minutes after the change.
+For any single data change of the type listed below in a system domain controller under normal operating conditions, the IP Services Subsystem shall replicate the changed data to all domain controllers in the system less than 60 seconds after the change.
+For any single hostname data change in a Tsub domain controller under normal operating conditions, the IP Services Subsystem shall replicate the changed data to all Tsub domain controllers within the same zone less than 60 minutes after the change.
+For any single hostname data change in a UCS domain controller under normal operating conditions, the IP Services Subsystem shall replicate the changed data to all Tsub domain controllers in any zone less than 45 minutes after the change.
+For any single zone subnet hostname data change in a zone domain controller under normal operating conditions, the IP Services Subsystem shall replicate the changed data to all Tsub domain controllers within the same zone less than 45 minutes after the change.
+If a Console Subsystem User PTTs on a conventional channel that is considered as unaffiliated with the call controller, the Console Subsystem shall conduct an immediate affiliation of the channel with the call controller by sending the call controller a Conventional Affiliation Request or a Digital Conventional Affiliation Request. An immediate affiliation is not bound by the upload throttling mechanism.
+If a link to a controller (Zone Controller or Conventional Site Controller) was not available, at the time the page was to be sent, for a paging console configured for sequential paging, the Dispatch Console shall fail the current page and any remaining, unsent pending pages associated with the same paged-upon resource and indicate as such to the Dispatch Console User.
+If an active Control Path with the Zone Controller Subsystem is established when the Console Subsystem is in the Fallback mode, the Console Subsystem shall determine to transition out of Fallback mode immediately. 
+If the Call Controller Subsystem receives an Out Of Service (OOS) message for a Dispatch Console, the Call Controller Subsystem shall deactivate all Console Repeats activated by this Dispatch Console.
+If the Call Controller acknowledges the affiliation request from the Dispatch Console, the Call Controller shall issue a Patch_Reserve_Grant message to the affiliating console's site if the affiliated talkgroup is patch reserved. 
+If the Call Controller receives a Console_Application_Out_of_Service message for a Dispatch Console and this Dispatch Console is the controller of a busy call, the Call Controller will remove this Dispatch Console as the controller of the busied call. 
+If the Call Controller receives a Console_Application_Out_of_Service message for a Dispatch Console and this Dispatch Console is transmitting on an active call, the Call Controller shall remove the Dispatch Console as a transmitter on the call and proceed with the call as if the dispatch console had dekeyed. 
+If the Control Path with the fallback call controller fails, the Console Subsystem shall retain the state of station control features for all affiliated conventional channels. 
+If the Dispatch Console user requests a talkgroup call service on a talkgroup that is not affiliated with the call controller, the Dispatch Console shall issue an Affiliation_Request message to the call controller. Talkgroup call services include: talkgroup PTT, emergency call setup (trunking only), emergency knockdown, and emergency acknowledge. The Dispatch Console is not bound by the mobility upload procedure when sending the affiliation message.
+If the Zone Controller Subsystem acknowledges the affiliation request for a conventional channel from the Console Subsystem and the conventional channel is patch reserved, the Zone Controller Subsystem in wide mode or the Conventional Fixed Radio Subsystem in site mode shall issue a Conventional Patch Reserve Grant message to the affiliating Console Subsystem.
+If the Zone Controller receives a Console_Application_Out_of_Service message for a Dispatch Console and this Dispatch Console's site was participating in a Unit to Unit call, the Zone Controller shall end the Unit to Unit call.
+If the Zone Controller receives a Console_Application_Out_of_Service message for a Dispatch Console that is active in a console initiated emergency call and this Dispatch Console is either the first Dispatch Console to setup the emergency call without console transmitters or the last Dispatch Console to transmit on the emergency call, the Zone Controller shall transmission trunk the active emergency call. 
+If the call controller receives an Out Of Service (OOS) message for a Dispatch Console, the call controller shall deactivate all Channel Markers activated by this Dispatch Console.
+Immediate Affiliation on PTT
+N/A
+Once determining to transition from fallback mode to wide area conventional mode and if a conventional channel is active in a call with radio transmitting, the Conventional Fixed Radio Subsystem shall stop sourcing audio on the assigned multicast group. 
+Once determining to transition from fallback mode to wide area conventional mode, if a conventional channel is active in a call with console transmitting, the Conventional Fixed Radio Subsystem shall dekey the conventional channel. 
+Once determining to transition from fallback mode to wide area conventional mode, the Conventional Fixed Radio Subsystem shall end all active calls on the associated conventional channels. 
+Once determining to transition out of Fallback mode after the Control Path with the Zone Controller Subsystem is recovered, each Console Subsystem at the site shall end any ongoing calls in the Fallback mode.
+Once determining to transition out of Fallback mode after the Control Path with the Zone Controller Subsystem is recovered, each Console Subsystem at the site shall end any ongoing calls in the Fallback mode. 
+Once the CP with the Conventional Fixed Radio Subsystem fails and no active CP with the Zone Controller Subsystem exists, the Consoles Subsystem shall inform the user that the affected conventional resources are non-operational.
+Once the Control Path with the Tsub Zone Controller fails and no active Control Path with the Zone Controller Subsystem exists, the Consoles Subsystem shall inform the user that the affected conventional and trunking resources are non-operational.
+SysName Config
+TESTABLEREQ
+Tf is defined as (Link Debounce Timer*4) + (Trunk Recovery Timeout Timer) + 20 secs.
+Tf is defined as (Link Debounce Timer*4) + (Trunk Recovery Timeout Timer) + 20 secs. 
+The Call Controller Subsystem, upon granting a dispatch console's request to affiliate to a conventional channel that currently has Console Self Repeat enabled, shall update the Dispatch Console with the enabled state by sending it the Console Self Repeat Enable Grant message.
+The Call Controller shall change any repeat disable state owned by a Vortex 2 dispatch console at a failed Vortex 2 console site to become repeat enabled. 
+The Call Controller, upon receipt of a Console_Application_Out_of_Service message for a Dispatch Console, shall patch unreserve all patch reserved talkgroups established by the out of service Dispatch Console. This will result in Talkgroup_Patch_Unreserve_Grant messages being sent to the Dispatch Consoles with affected talkgroups. 
+The Call Controller, upon receipt of a Console_Application_Out_of_Service message for a Dispatch Console, shall repeat enable all repeat disabled talkgroups established by the out of service Dispatch Console. 
+The Console Subsystem shall end any unacknowledged Radio Disable procedures when transitioning from system wide area to fallback or fallback to system wide area mode.
+The Console Subsystem shall end any unacknowledged Radio Enable procedures when transitioning from Wide to Site or Site to Wide Mode.
+The Console Subsystem shall end any unacknowledged Remote Monitor procedures when transitioning from system wide area to fallback or fallback to system wide area Mode of operation.
+The Console Subsystem shall end any unacknowledged Status Request procedures when transitioning from system wide area to fallback or fallback to system wide area mode.
+The Console Subsystem shall, when transitioning from system wide area to fallback mode or fallback to system wide area mode of operations end an unacknowledged Radio Check procedure.
+The IV&D Fixed Radio Subsystem  shall report the state of its site and device level objects to the RNMS.
+The IV&D Fixed Radio Subsystem shall provide a mechanism for configuring the Tsub ZC IP addresses for a Tsub capable trunking site controller.
+The IV&D Fixed Radio Subsystem shall provide a mechanism for configuring whether a trunking site controller is Tsub capable.
+The Subsystem shall enforce that Console_Site:Tsub_ID attribute is configurable when Console_Site:Console Site Location attribute is set to Site Located in a Trunking Subsystem
+The Subsystem shall enforce that Console_Site:Tsub_ID attribute is set to the default Null value when Console_Site:Console Site Location attribute is set to a value other than Site Located in a Trunking Subsystem and send 0 value at the distribution time.
+The Subsystem shall send 0 value at distribution time for the default Null value of the Multi_Site_Subsystem::Tsub_ID and ISR_Site::Tsub_ID parameter.
+The Subsystem shall send 0 value at distribution time for the default Null value of the Transcoder::Tsub_ID parameter.
+The ZC shall tear down any patches, which consist of trunking resources, owned by a Vortex 2 dispatch console at a failed Vortex 2 console site. 
+The Zone Controller Subsystem operating in the Tsub shall report the state of the netcom2 link with the Console to the fault manager.
+The Zone Controller Subsystem operating in the Tsub shall report the state of the netcom2 link with the Transcoder to the fault manager.
+The Zone Controller Subsystem operating in the Tsub shall set the Authentication Required parameter to true in the Unit Registration Response.
+The Zone Controller Subsystem operating in the zone core shall set the Authentication Required parameter to false in the Unit Registration Response.
+The Zone Controller Subsystem residing in a Tsub shall ONLY cancel the Adjacent Control Channel information for sites outside the Tsub if the adjacent site is removed via the network management configuration interface.
+The Zone Controller Subsystem residing in the Tsub shall deny any received Site Alert Request ICP.
+The Zone Controller Subsystem residing in the Tsub shall only report on fault objects that are applicable to the Tsub Zone Controller.
+The Zone Controller Subsystem residing in the Tsub shall prevent any faults  related to the AUC from being reported.
+The Zone Controller Subsystem residing in the Tsub shall prevent the reporting of any faults related to CCGW link connections.
+The Zone Controller Subsystem residing in the Tsub shall prevent the reporting of any faults related to RP Router states.
+The Zone Controller Subsystem residing in the Tsub shall prevent the reporting of any faults related to inter-zone connections.
+The Zone Controller Subsystem residing in the Tsub shall prevent the reporting of any faults related to the HA link state.
+The Zone Controller Subsystem residing in the Tsub shall prevent the reporting of any faults related to trunking RF Site link connections.
+The Zone Controller Subsystem residing in the Tsub shall report the state of the console site link as up and not degraded, when both the active and inactive console site link paths are connected to the same NIC.
+The Zone Controller Subsystem shall send the Group Affiliation Query OCP for conflict resolution between sites having the same talkgroup affiliation for the radio.
+The Zone Controller Subsystem shall use send Unit Registration Command OCP for conflict resolution between sites having the different talkgroup affiliation for the radio.
+The Zone Controller subsystem operating in the Tsub shall allocate a single Transcoder resource per transcoded group call, regardless of the ISGW zone configuration parameter.
+The allocated Subsystem shall display logon banner containing the following required notice and consent information:
+The allocated subsystem shall enforce that the Zone ID of configurable object Zone, and Transcoder ID of the configurable object Transcoder shall uniquely identify the Transcoder object at locations other than a Trunking Subsystem or Tsub within the system.
+The allocated subsystem shall provide a mechanism for populating the MIB-II SysName for all devices in a Tsub in accordance with the following syntax:
+The allocated subsystem shall provide the Support User with a user interface to display status of all discovered objects listed in SYS-054 (Dashboard)
+The allocated subsystem shall report on the health of Active Directory replication as defined in ICD-171 to all registered managers
+The allocated subsystem shall report on the health of DNS Services as defined in ICD-171 to all registered managers
+The allocated subsystem shall report on the health of Radius Services as defined in ICD-171 to all registered managers
+The allocated subsystem shall report on the health of the Active Directory Service as defined in ICD-171 to all registered managers
+The allocated subsystem, when deployed in a Tsub, shall authenticate user logins to the Domain Controller resident in the Tsub when there is no connectivity to the zone core Domain Controllers.
+The allocated subsystems shall connect to the Infrastructure Configuration Management  service in the primary core as the preferred and connect to the Infrastructure Configuration Management  service in the backup core, only when the preferred service is not available.
+The allocated subsystems shall operate using the persistently stored configuration data that was previously downloaded.
+The allocated subsystems shall resolve and connect to the Infrastructure Configuration Management  service at the redundant core using the known DNS aliases from the network naming services, as specified in the System Configuration Plan ICD. 
+The short version of Logon Banner is provided here for devices that can only support 80 characters in length:-
+The subsystem shall be configured to identify and authenticate with the system-wide AAA authority.
+The subsystem shall log all user's successful authentication and unsuccessful authentication from the perspective of the element on which the user authenticates. 
+The supergroup shall be dissolved upon failure of the controlling Dispatch Console.
+Ti seconds is defined as the longer of: (Link Debounce Timer + 2.5 sec) or duration configured via the Site Trunking Indication Holdoff Time parameter.
+Transcoder in the Audio Subsystem  shall introduce 0 packet loss during transcoding.
+Transitioning from system wide area to fallback or fallback to system wide area mode of operations shall end the unacknowledged call alert procedure in the Console Subsystem.
+Upon Call Controller-CCGW link goes down containing a conventional talkgroup channel and an inbound call is in progress on that conventional talkgroup channel, the Call Controller shall send a Talkgroup EOC Grant to the consoles affiliated and consoles associated to the talkgroup.
+Upon Call Controller-CCGW link goes down containing a conventional talkgroup channel and console PTT request is busied/queued for conventional talkgroup(s) on that conventional talkgroup channel, the Call Controller shall send Talkgroup EOC Grant(s) to the requesting console(s).
+Upon attempting authentication, if system wide authentication is Required, SAI for the SUID is not present and authentication will not be delayed, the Zone Controller subsystem (outside the Tsub) shall disallow system access for the SUID.
+Upon detecting the failure of the link to the fallback call controller, the Conventional Fixed Radio Subsystem shall end all active calls on the associated conventional channels. 
+Upon detection of a failure of the link to the call controller, the Conventional Fixed Radio Subsystem shall enable repeat operation for all the talkgroups on all the conventional talkgroup channels with operational links to the BR/Comparator.
+Upon determining authentication is needed, if the SUID is not Unit Registering or is not Location Registering, system wide authentication is Enabled or Required and SAI for the SUID is available, the Zone Controller Subsystem (outside the Tsub) shall send a Commanded Registration to the SUID.
+Upon discovery of an ISR_Site or a Multi_Site_Subsystem or a HPD Site at a zone, the subsytem shall verify if the discovered Site_ID value is in use by another ISR_Site, Multi_Site_Subsystem, Console Site, HPD Site or a Tsub Prime Site and shall fail the discovery of the Site if a duplicate ID value is discovered.
+Upon discovery of the Tsub, the subsystem shall verify if the discovered Tsub_ID value is already in use as a Site ID value for a console site, ISR Site, HPD Site or as a Tsub_ID value for another Tsub Prime Site at the zone and shall fail the discovery of the Tsub if a duplicate ID value is discovered.
+Upon establishing SCPs with the Tsub ZC, the IV&D Fixed Radio Subsystem shall resume its search for a primary core or backup core Zone Controller in accordance with the Link Debounce Timer (default is 3 seconds) as a background task while maintaining the site control paths to the Tsub Zone Controller. 
+Upon failure of the Control Path with the fallback call controller, the Console Subsystem at the site shall end calls/ leave multicast groups associated with active calls in fallback mode.
+Upon failure of the Control Path with the fallback call controller, the Console Subsystem at the site shall end calls/ leave multicast groups associated with active calls in fallback mode. 
+Upon failure to connect to the Infrastructure service in the primary core, the allocated subsystems shall connect to the Infrastructure Configuration Management  service in the backup core with no additional user intervention.
+Upon loss of communication with a primary name server, the subsystem clients shall query name services in accordance with the DNS ICD.
+Upon loss of communication with the controlling console of a patch group, the Call Controller shall patch unreserve the talkgroups and send a Talkgroup Patch Unreserve Grant to all affiliated console subsystems. 
+Upon pulling the Zone Controller configuration, the subsytem shall default the value of the Tsub_ID parameter to Null, if the parameter value is 0.
+Upon receipt of a Talkgroup Channel Marker Disable message from a Dispatch Console, the Call Controller shall send a Talkgroup Channel Marker Disable Grant to all Dispatch Console Sites affiliated to that resource.
+Upon receipt of a Talkgroup Channel Marker Enable message from a Dispatch Console, the Call Controller shall issue a Talkgroup Channel Marker Enable Grant to all Dispatch Console Sites affiliated to the Talkgroup on which the Channel Marker was enabled.
+Upon receipt of configuration data from the Radio Network Management Subsystem, the data shall be effective in the Audio Subsystem without resulting in a device reset, nor disruption to voice services, and no additional user action from the Radio Network Management Subsystem.
+Upon receipt of the Conventional Channel Out of Service Request ICP message for a conventional channel, the call controller shall end any call activities on the conventional channel if existing and inform the Console Subsystem that the channel is out of service.
+Upon receiving Site Mobility Database Upload ICP indicating authentication is required, if system wide authentication is Enabled or Required and SAI for the SUID is available, the Zone Controller subsystem (outside the Tsub) shall schedule authentication of the SUID. 
+Upon receiving a Conventional Talkgroup Affiliation Request ICP, the Call Controller shall respond with a Conventional Talkgroup Affiliation Acknowledgement OCP indicating the updated Talkgroup MSK, current repeat enable/disable state, and upload rate.
+Upon receiving a Group Affiliation Request ICP from an RF Site for a foreign Group that is not currently registered in the system when the link to the ISGW is down, the Zone Controller Subsystem shall send a Group Affiliation Response OCP to the RF Site indicating that the affiliation request has been denied.
+Upon receiving a Main Alternate Channel Switch Request to activate an inactive conventional channel participating in a main/alternate configuration while the inactive channel is in service, the Zone or Conventional Site Controller shall make the inactive channel active and the active channel inactive, communicating the switch to all Console/AIS units affiliated to the Main/Alt channels using the following message:
+Upon receiving a Unit Registration Request from an RF Site for a foreign Subscriber Unit that is not registered on the system, and if the link to the ISGW is down, the Zone Controller Subsystem shall send a Unit Registration Response to the RF Site indicating that the registration request has been denied.   
+Upon receiving a distribution from the RNMS, and if the distribution includes a Subscribe Unit/talkgroup record for a default record, the ZC shall replace the temporary records with the distributed record.
+Upon receiving a registration request from a home Subscriber Unit that is not configured in the System, regardless of whether default subscriber auto-configuration is enabled, the Zone Controller Subsystem inside the Tsub shall create a temporary radio record AND NOT distribute default SAC records to the current active Radio Network Management Subsystem.
+Upon receiving a service request from the Subscriber Subsystem, if the SUID is not unit registered or not location registered, system wide authentication is Enabled or Required and SAI for the SUID is available, the Zone Controller subsystem (outside the Tsub) shall authenticate the SUID.
+Upon receiving an 'in service' or 'partially available' message from a conventional channel participating in a Main/Alternate configuration when neither channel of the main/alternate pair has reported 'in service' or 'partially available' , the Zone or Conventional Site Controller shall make the first channel of the main/alternate pair to report 'in service' or 'partially available' the active channel interface for the pair and communicate this event to all affiliated Console/AIS units via the Main Alternate Channel Switch Grant message.
+Upon receiving an affiliation request from a home Subscriber Unit to a home talkgroup that is not configured in the System, regardless of whether default subscriber auto-configuration is enabled, the Zone Controller Subsystem inside the Tsub shall create a temporary talkgroup record AND NOT distribute default SAC records to the current active Radio Network Management Subsystem.
+Upon receiving the first transcodable IBME or AMBE Full-Rate voice packet from a FDMA voice stream, the Transcoder in the Audio Subsystem  shall transcode and transmit the corresponding MAC_PTT0 on its LAN interface within 15 + Roundup [(Network Jitter Buffer + 5) / 20] x 20ms on average with 95% confidence and Not to Exceed 27.5 + Roundup [(Network Jitter Buffer + 5) / 20] x 20ms.
+Upon recovery of the link to the call controller, the Conventional Fixed Radio Subsystem shall enable repeat operation for all the talkgroups on all the conventional talkgroup channels that are in service.
+Upon sending the successful Group Affiliation Query Response Acknowledgment to the Fixed Radio Subsystem, the Zone Controller Subsystem residing in the Tsub shall set the Authentication Required parameter in the Group Affiliation Query Response Acknowledgment according to the Authentication Required parameter remembered from the most recent Unit Registration Request or non-conflicting Mobility Database Upload or Update Add from the site for this radio.
+Upon sending the successful Location Registration Response to the Fixed Radio Subsystem, the Zone Controller Subsystem residing in the Tsub shall set the Authentication Required parameter in the Location Registration Response according to the Authentication Required parameter remembered from the most recent Unit Registration Request or non-conflicting Mobility Database Upload or Update Add from the site for this radio.
+Upon single point of failure for authentication services, the IP Services Subsystem shall respond to Directory Services authentication requests from an alternate server.
+Upon the recovery of a Vortex 2 console site, the Call Controller shall refresh Vortex 2 dispatch consoles with supergroup information (trunking only), Repeat/Disable settings for Talkgroups, emergency call indications, Channel Marker state, and Tactical/Normal indications for Talkgroups. 
+Upon transitioning from system wide area to Tsub mode, the patch controlling Console Subsystem shall attempt to patch reserve all in-service, affiliated resources that were patch reserved prior to the transition to Tsub mode by sending a Talkgroup Patch Reserve Request for each one. 
+Upon transitioning to Site Trunking, the IV&D Fixed Radio Subsystem shall continue to send the same Adjacent Status Broadcast messages that it sent in wide trunking, but with the V bit VF (Validity Flag) clear, until it receives from the Zone Controller for the given packet number an Adjacent Status Broadcast or Adjacent Status Broadcast Cancel.
+Upon user request and using the configuration specified in Baseline Setup for RNMS Performance Tests, the Radio Network Management Subsystem shall execute a 100-record Subscriber Creation or Capability change job to 25 or more agents at a rate greater than 10 agents per minute.
+Use of this device and any related service is your consent to all associated terms, conditions, including consent to monitoring and disclosure provisions.
+Virtual Server Platform (VMS) at a Tsub prime site: [hostname].[domain name] as specified in ICD-068 for these fields.
+Warning: This is a monitored computer system. Illegal and/or unauthorized use of this device and any related service is strictly prohibited and appropriate legal action will be taken, including without limitation civil, criminal and injunctive redress. Your use of this device and any related service constitutes your consent to be bound by all terms, conditions, and notices associated with its use including consent to all monitoring and disclosure provisions.
+When a Console site link goes down, the Call Controller Subsystem (Conventional Fixed Radio Subsystem in Express Conventional) shall deactivate all the Channel Markers that were activated by the Dispatch Consoles at this site.
+When a Console site link goes down, the Call Controller Subsystem shall deactivate all the Console Self Repeats that were activated by the Dispatch Consoles at this site.
+When all controllers in the zone core are not reachable and the subsystem is configured for Tsub operation, the IV&D Fixed Radio Subsystem shall attempt to establish full link connectivity with the Tsub Zone Controller.
+When an RF site transitions to Wide Area trunking and if the Zone Controller received a Site Mobility Database Update Add ICP, or a Site Mobility Database Upload ICP from a RF Site for an unregistered foreign Subscriber Unit, the Zone Controller Subsystem shall send a Unit Registration Command OCP to the RF site after delaying the appropriate amount of time to meet the message rate requirement for the RF Site link. 
+When any RADIUS data changes, the sub-system shall replicate the changed data between the different servers providing the service within 30 minutes of the change, under normal conditions
+When any authentication data changes, the sub-system shall replicate the changed data between the different servers providing the service within 30 minutes of the change, under normal conditions
+When any hostname data changes, the sub-system shall replicate the changed data between the different servers providing the service within 30 minutes of the change, under normal conditions
+When calculating the MIB-II SysName value for a MutiSite_SiteController that resides at a Tsub, the subsystem shall provide safeguards to ensure that the Multi_Site_Subsystem:Site_ID is the same value as the Tsub ID.
+When calculating the mib-II sysName value, the Subsystem shall provide safeguards to ensure that the user entered values for a Tsub ID and the subsite ID are configured within the range limits for a Tsub (Tsub ID = 1 to 64, subsite ID is 1 to 32). 
+When configured for Tsub operation within a DSR system, upon losing both SCPs to the Zone Controller in the zone core, the IV&D Fixed Radio Subsystem shall attempt to establish SCPs at least twice each with a Zone Controller at the primary core and backup core before attempting to establish full link connectivity with the Tsub Zone Controller.
+When loaded with the Tsub profiles defined in SYS-031, a Tsub in local area mode shall complete greater than 99.99% of all voice calls.
+When located in a Tsub, the subsystem shall enforce value of Transcoder:Transcoder_ID value is 1 when the Transcoder:Tsub_ID is configured with a non-null value.
+When presented with the Tsub loads defined in SYS-031 and operating in Tsub local area mode, the Tsub's zone controller subsystem shall respond to service requests in less than 5 milliseconds on the average with a 95% confidence level, for a sample size of 100 for each service. 
+When switching to Tsub local area mode under the Tsub loads defined in SYS-031, the system shall direct 32 subtending trunking RF sites to Tsub wide area mode in less than 29.6 seconds.
+When switching to Tsub local area mode under the Tsub loads defined in SYS-031, the system shall establish 65 Tsub CCGW site control link sessions in less than 44.2 seconds.
+When switching to Tsub local area mode under the Tsub loads defined in SYS-031, the system shall respond to 500 subtending console site console's application in service requests in less than 8.3 seconds.
+When switching to local area mode under the Tsub loads defined in SYS-031, the  Tsub's zone controller subsystem shall collect mobility updates from 500 Tsub consoles in  less than 8.3 seconds plus the mobility update time calculated in the Tsub Local Area Mobility Upload Model.
+When switching to local area mode under the Tsub loads defined in SYS-031, the Tsub's zone controller subsystem shall collect mobility updates from 32 trunking RF sites in the Tsub in less than 35.1 seconds plus the mobility update time calculated in the Tsub Local Area Mobility Upload Model.
+When switching to wide area mode under the Tsub loads defined in SYS-031, the system shall direct 65 Tsub subtending trunking RF sites to wide area mode in less than 25.0 seconds.
+When switching to wide area mode under the Tsub loads defined in SYS-031, the system shall establish 65 Tsub CCGW site control link sessions in less than 57.8 seconds.
+When switching to wide area mode under the Tsub loads defined in SYS-031, the system shall respond to 32 Tsub subtending console site's applications in service requests in less than 28.6 seconds.
+When the Call Controller receives a conventional channel in service request for a conventional channel that is part of a main/alt pair and the Call Controller has determined that the channel is the active channel of the pair, the Call Controller shall send a main alt state command to the Conventional Fixed Radio Subsystem indicating that the channel is the active channel.
+When the Call Controller receives a main/alt switch request for a conventional channel that will be granted, the Call Controller shall send the Conventional Fixed Radio Subsystem a main alt state command indicating that the current active channel is now inactive and a main alt state command indicating that the current inactive channel is now active.
+When the Console Subsystem receives a Conventional Channel Update Message with a Service Status of Out Of Service for a conventional channel it is affiliated to, the Console Subsystem shall indicate the status of the conventional channel to the Console Subsystem User.
+When the Console_Site:Console Site Location indicates that it is in a Trunking Subsystem, the allocated subsystem shall set the value for the Conventional_Site_Controller:Site_Controller_DNS_Name to the FQDN of the Tsub ZC Network Interface CNI1 using the rules specified in the IP_Plan (ICD-068) and using the Tsub_ID of the Console_Site object as the site number in this FQDN. 
+When transitioning from the fallback mode back to the system wide area, the Console Subsystem shall maintain the state of each channel's station control features.
+While monitoring the links to the zone core during recovery from Tsub local area operation, if the links are determined to be unstable per the criteria defined in ICD-070, the IV&D Fixed Radio Subsystem shall consider the transport unstable and restart link up procedures.
+Zone Controller Subsystem sends Conventional Patch Reserve Grant
+[AR-1222-2001]    Call Alert transition between primary and fallback mode
+[AR-1223-2362]    Radio Check transition between system wide area and fallback mode.
+[AR-1223-2402]    Remote Monitor transition between system wide area and fallback mode.
+[AR-1223-2523]    Status Request transition between system wide area and fallback mode
+[AR-1223-2564]    Radio Disable transition between system wide area and fallback mode
+[AR-1223-2644]    Transition from Wide to Site Mode Radio Enable
+[AR-1239-1560]    Supergroup disolution on console failure
+[AR-1239-3516]    Patch Unreserve Conventional Talkgroups when connection with controlling console lost 
+[AR-1239-3631]    Patch Talkgroups - Patch Reserve talkgroups with the Fallback Controller
+[AR-1246-3077]    CCGW Link failure to Call Controller - Call clean up busied/queued call
+[AR-1246-3078]    CCGW Link failure to Call Controller - Call clean up inbound call
+[AR-1246-3404]    Allocating Transcoder Resources in the Tsub
+[AR-1271-1281]    Console Affiliates upon Talkgroup Call Service Request
+[AR-1271-1357]    Console Patch Reserve Grant after Affiliation
+[AR-1271-1530]    Talkgroup deaffiliation Acknowledged
+[AR-1271-1638]    De-key Out of Service Console.
+[AR-1271-1642]    Transmission trunk console emergency upon console out of service
+[AR-1271-1647]    Out of Service Console no longer Busy Controller
+[AR-1271-1657]    End U2U call upon console out of service
+[AR-1271-1662]    Out of Service Causes Patch Unreserve
+[AR-1271-1667]    Repeat Enable due to Out of Service Console
+[AR-1271-1917]    Disassociate WGID for ISGW deregistering foreign group
+[AR-1271-1957]    Console Affiliation 
+[AR-1273-2894]    Site Access Denial - Site Upload Considerations
+[AR-1273-2961]    Foreign SU Registration, Link to ISGW down 
+[AR-1273-3063]    Foreign Group Affiliation, Link to ISGW down - Deny Affiliation Request
+[AR-1273-3098]    New Foreign SU detected, Mobility Upload - Force SU Registration
+[AR-1273-3484] ASBs for Sites Outside the Tsub
+[AR-1273-3489]    Propogate Authentication Required in Location Registration Response in Tsub mode
+[AR-1273-3490]    Propogate Authentication Required in Group Affiliation Query Response Acknowledgment in Tsub mode
+[AR-1273-3491]    Authentication Required in Unit Registration Response in Tsub
+[AR-1273-3492]    Authentication Required in Unit Registration Response in zone core
+[AR-1273-3493]    Conflict Resolution same talkgroups
+[AR-1273-3496]    Conflict Resolution different Talkgroups
+[AR-1546-1081]    Different Console may Deactivate Channel Marker
+[AR-1546-1082]    Channel Marker Disable to all Affiliated Consoles
+[AR-1546-1085]    Channel Marker Grant to Affiliated Consoles
+[AR-1546-1140]    Console OOS deactivates Channel Marker
+[AR-1546-1143]    Console Site Link Loss - Channel Marker Deactivation
+[AR-1547-1973]    Link Down to controller  - Sequential Mode
+[AR-1548-1073]    Main/Alt Switch
+[AR-1548-1299]    Main/alt state command for first channel in pair to come in service
+[AR-1548-1300]    Main/alt state command for a main/alt switch request
+[AR-1548-1322]    First in service or partially available channel becomes active channel
+[AR-1548-1326]    Upon going in service with a Console Site, the Zone Controller or Conventional Site Controller shall refresh the Console Subsystem with the main/alternate status of each main/alternate pair which has one or more channels in service and affiliated with that Console Site.
+[R-SEG-2346-2062]    AAA ready
+[R-SEG-2346-2074]    Logging user's authentication
+[R-SEG-2346-2764]    Logon Banner with Approved Text
+[R-SEG-2346-3238]    Authentication to the Tsub DC
+[R-SUB-2023-1980]    Console Affiliation/Call processing
+[R-SUB-2023-2011]    Patch Reserved Channel
+[R-SUB-2023-2247]    Conventional Channel Goes In-service or is Partially Available
+[R-SUB-2023-2252]    Fixed Radio Subsystem In-Service/Out-Service/Partially Available
+[R-SUB-2023-2266]    Fixed Radio Subsystem In-Service/Out-Service
+[R-SUB-2023-2272]    Fixed Radio Subsystem Out-Service
+[R-SUB-2023-2274]    Fixed Radio Subsystem In-Service/Out-Service
+[R-SUB-2023-2368]    Fixed Radio Subsystem In-Service/Out-Service
+[R-SUB-2023-2429]    All Conventional Channels at a Conventional Site Out of Service
+[R-SUB-2023-2438]    Affiliation Database Synchronization - Link recovery to Call Controller
+[R-SUB-2023-2447]    CCGW channel in Service - TGs Available
+[R-SUB-2023-2467]    CCGW Affiliation
+[R-SUB-2023-2508]    CCGW Link failure to Call Controller - TG status
+[R-SUB-2023-2540]    Console updates conventional affiliations upon return to system wide area
+[R-SUB-2023-2541]    Console updates conventional de-affiliations upon return to system wide area
+[R-SUB-2028-4158]    Repeat Enable Disable - Repeat Enable due to RF Site Down
+[R-SUB-2028-4159]    Repeat Enable Disable - Repeat Enable upon link recovery to call controller
+[R-SUB-2028-4280]    Console Self Repeat State updated on Affiliation
+[R-SUB-2028-4308]    Console OOS deactivates Console Self Repeat
+[R-SUB-2028-4310]    Console Site Link Loss - Console Self Repeat Deactivation
+[R-SUB-2054-2065]    Retain station control state upon system wide area mode to fallback mode transition
+[R-SUB-2054-2076]    Cleanup calls upon link failure in fallback mode
+[R-SUB-2054-2077]    site mode
+[R-SUB-2054-2078]    Control Path Failure in Fallback Mode
+[R-SUB-2054-2083]    Mainain station control state upon fallback to system wide area transition.
+[R-SUB-2054-2084]    Conventional Channel State upon transition out of fallback mode
+[R-SUB-2054-2520]    Console Connection Status
+[R-SUB-2054-2531]    Fallback Mode - Prefer use with ZC
+[R-SUB-2054-2533]    Fallback mode - Clean up calls when leaving
+[R-SUB-2054-2534]    Fallback Mode - Indicate full capabilities when connected again to ZC
+[R-SUB-2054-2932]    Indication of fallback mode
+[R-SUB-2054-2941]    Console begins affiliating resources with the Tsub Zone Controller immediately upon link failure detection.
+[R-SUB-2054-2943]    Resource Failure Notification on Linkdown to Tsub ZC
+[R-SUB-2070-2254]    Failure during Fallback mode
+[R-SUB-2070-2255]    Transition out of Fallback Mode
+[R-SUB-2070-2256]    End calls on Transition out of Fallback mode
+[R-SUB-2070-2257]    Dekey channel on Transition out of Fallback mode
+[R-SUB-2070-2258]    Transition out of fallback mode during radio transmission.
+[R-SUB-2070-2260]    Reporting Channel Failures in Fallback Mode
+[R-SUB-2070-3909]    In service with the Tsub ZC
+[R-SUB-2075-4123]    Time Duration for Declaring Link Failure
+[R-SUB-2075-4365]    Indicate Authentication Required for SUIDs registered during Site Mobility database upload
+[R-SUB-2075-5530]    Zone Controller Preference
+[R-SUB-2075-5531]    DSR - Lost SCP to zone core
+[R-SUB-2075-5534]    Search for Zone Core Controller During Tsub Local Area
+[R-SUB-2075-5537]    Verify Stable Transport
+[R-SUB-2075-5538]    Response to Unstable Transport
+[R-SUB-2075-5543]    Tsub Capable
+[R-SUB-2075-5544]    Tsub ZC IP Addresses
+[R-SUB-2075-5550]    Authentication Required Status During Tsub
+[R-SUB-2075-5551]    Preserve Authentication Required Status
+[R-SUB-2075-5552]    Maintain Auth Required During Subscriber Roaming
+[R-SUB-2075-5553]    Preserve Authentication Required After Location Registration
+[R-SUB-2075-5620]    Site Trunking Indication Holdoff During Tsub Failover
+[R-SUB-2075-5622]    Failover to Tsub Local Area - Site Trunking Indication Holdoff Maximum Duration
+[R-SUB-2075-5641] Site Trunking/Tsub ASB Handling
+[R-SUB-2084-1943]    Directory Services Authentication Credentials are Replicated
+[R-SUB-2084-1963]    DNS Client Resolver Configuration
+[R-SUB-2084-2064]    Hostname Resolution Replication
+[R-SUB-2084-2065]    Authentication Data Replication
+[R-SUB-2084-2066]    RADIUS Authentication Data Replication
+[R-SUB-2084-2310]    Hostname Resolution Replication from UCS to Tsub DCs
+[R-SUB-2084-2311]    Authentication Data Replication from Zone DC to Same Zone Tsub DCs
+[R-SUB-2084-2312]    RADIUS Authentication Data Replication from Zone DC to Tsub DCs
+[R-SUB-2084-2313]    Hostname Resolution Replication from Tsub DC to Other Tsubs
+[R-SUB-2084-2314]    Hostname Resolution Replication from Zone DC to Tsub DCs
+[R-SUB-2084-2315]    Authentication Data Replication from Zone DC to Different Zone Tsub DCs
+[R-SUB-2084-2316]    Authentication Data Replication from Tsub DC to Tsub DCs in Different Zone
+[R-SUB-2084-2317]    Domain Controller Immediate Data Replication
+[R-SUB-2087-2147]    After a Vortex 2 console site failure, the ZC shall internally dekey any Vortex 2 dispatch consoles that were transmitting in trunking call(s) prior to the failure of the Vortex 2 console site and notify remaining affiliated Vortex 2 dispatch consoles at other Vortex 2 console sites of the dekey. 
+[R-SUB-2087-2148]    If a failed Vortex 2 console site was causing a group call to be busied, the ZC shall remove the Vortex 2 console site as a cause of the busy and the busied call may now be converted. 
+[R-SUB-2087-2149]    Upon detecting a Vortex 2 console site failure, the ZC shall end a Private Call associated with a Vortex 2 dispatch console that was in a private call busy state upon failure of the Vortex 2 console site. 
+[R-SUB-2087-2150]    Tear Down Patches
+[R-SUB-2087-2151]    Go to repeat enable when owner console disappears
+[R-SUB-2087-2152]    After the failure of a Vortex 2 console site, the ZC shall gracefully end any active private calls that were associated with any Vortex 2 dispatch console at the failed Vortex 2 console site by transmission trunking the call. 
+[R-SUB-2087-2153]    The ZC shall transmission trunk any emergency calls that were owned by a Vortex 2 dispatch console at a Vortex 2 console site that fails.
+[R-SUB-2087-2156]    Console Indications Refreshed - Console Site Link Recovery
+[R-SUB-2087-2157]    Upon the recovery of a Vortex 2 console site, the ZC shall assign calls to affiliated Vortex 2 dispatch consoles for ongoing trunking calls/call activity on the next PTT. 
+[R-SUB-2087-2261]    Authentication on Site Upload
+[R-SUB-2087-2263]    Authentication on registration bypass
+[R-SUB-2087-2278]    Commanded Registration to cause authentication sequence
+[R-SUB-2087-2294]    Authentication Required no SAI disallow access
+[R-SUB-2087-2488]    Replace temporary Radio Records with Configured Record
+[R-SUB-2087-2819]    Create default Radio Records when an unknown Subscriber Unit registers with the System in Tsub mode
+[R-SUB-2087-2820]    Create default Talkgroup records when a Subscriber Unit affiliates with an unknown talkgroup in Tsub mode
+[R-SUB-2087-2822]    Fault Reporting on Transcoder Connection in Tsub mode
+[R-SUB-2087-2823]    Fault Reporting on Console Connection in Tsub mode
+[R-SUB-2087-2826]    Tsub ZC does not report faults for AUC
+[R-SUB-2087-2829]    Tsub ZC only reports on applicable fault objects.
+[R-SUB-2087-2830]    Deny site selectable alert in Tsub mode
+[R-SUB-2087-2831]    Tsub ZC doesn't do inter-zone faults
+[R-SUB-2087-2833]    Tsub ZC doesn't do HA Fault reporting
+[R-SUB-2087-2844]    Tsub ZC doesn't do RP fault reporting
+[R-SUB-2087-2851]    RF Site Mobility Updates for Tsub Going to Local Mode
+[R-SUB-2087-2852]    Console Site Mobility Updates for Tsub Going to Local Mode
+[R-SUB-2087-2874]    Tsub ZC doesn't do RF Site link faults
+[R-SUB-2087-2875]    Tsub ZC doesn't do CCGW link faults
+[R-SUB-2087-2878]    Tsub ZC does not report degraded netcom state
+[R-SUB-2087-2879]    Tsub Service Request Response Time
+[R-SUB-2089-1886]    Object State Management
+[R-SUB-2089-4421]    Alternate view for status of objects that the Fault Manager manages
+[R-SUB-2089-4476]    DC - Active Directory Service State
+[R-SUB-2089-4477]    DC - DNS Service State
+[R-SUB-2089-4478]    DC - Radius Service State
+[R-SUB-2089-4479]    DC - AD Replication State
+[R-SUB-2089-4641]    The Radio Network Management Subsystem shall include in the exported event reports, the system Name (sysName) values retrieved from the devices at a Trunking Subsystem (Tsub) location.
+[R-SUB-2089-4642]    The Radio Network Management Subsystem shall provide an O&M User means to add the system Name (sysName) value in the custom views pertaining to devices at a Trunking Subsystem (Tsub).
+[R-SUB-2089-4643]    The Radio Network Management Subsystem shall provide a display of all sites and subsites at a Trunking Subsystem location, grouped and identified by the Tsub ID and include the following aspects in the display of the Trunking Subsystem view :
+[R-SUB-2089-4644]    The Radio Network Management Subsystem shall provide an O&M User Capability at the Motorola Network Fault Manager to trigger discovery of devices at a Trunking Subsystem (Tsub) Prime Site subnet using the Prime Site ID.
+[R-SUB-2089-4645]    The Radio Network Management Subsystem shall provide an O&M User Capability at the Motorola Network Fault Manager to trigger discovery of devices at a Trunking Subsystem Subsite (Tsub) using the Prime Site ID and the Subsite ID.
+[R-SUB-2089-4646]    Upon detecting that the SNMP sysName of a device within a subsite or prime site indicates it is in a Tsub, and previously all other devices in the same prime site or in a subsite of the same prime site had been detected with an SNMP sysName indicating that it is not in a Tsub, the Radio Network Management Subsystem shall notify the user via a fault management event.
+[R-SUB-2089-4647]    Upon detecting that the SNMP sysName of a device within a subsite or prime site indicates it has a certain Tsub ID, and the IP address of the device corresponds to a different prime site ID according to ICD-068 IP plan, the Radio Network Management Subsystem shall notify the user via a state transitioning fault.
+[R-SUB-2089-4648]    Upon detecting that the SNMP sysName of a device within a subsite or prime site indicates it is not in a Tsub, and previously another device in the same prime site or a subsite of the same prime site had been detected with an SNMP sysName indicating that it is in a Tsub, the Radio Network Management Subsystem shall notify the user via a state transitioning fault.
+[R-SUB-2090-3314]    Subsystem: Operate with Stored Configuration Data
+[R-SUB-2090-3567]    DNS Aliases for LDAP services
+[R-SUB-2090-3568]    Subsystem connects to Preferred Service
+[R-SUB-2090-3569]    Subsystem to automatically switch to alternate CM Service
+[R-SUB-2090-3727]    Subscriber Creation or Change Job Execution for ZC, TSub ZC, PDG and ATR
+[R-SUB-2090-7586]    Activation of Configuration Data in Audio Subsystem Transcoder
+[R-SUB-2090-8187] 
+[R-SUB-2090-8202]    Business Rule: Calculate the Tsub ZC DNS name based on the Console Site Location 
+[R-SUB-2090-8203]    Business Rule: Allow O&M User ability to configure Tsub ID when console site location is set to Trunking Subsystem
+[R-SUB-2090-8206]    Business Rule: Enforce the total number of non-Tsub Multicast and Tsub sites does not exceed 64
+[R-SUB-2090-8207]    Business Rule: Extract Tsub ID value from MIB-II SysName
+[R-SUB-2090-8208]    Business Rule: Enforce that the Tsub ID and the Site ID values are the same at a MultiSite subsystem
+[R-SUB-2090-8211]    Business Rule: Enforce that the Transcoder ID is 1 when in a Tsub location
+[R-SUB-2090-8212]    Business Rule: Verify and fail discovery if Tsub_ID value is already in use 
+[R-SUB-2090-8221]    Business Rule: Enforce default value for Tsub_ID when console site location is set to a value other than Trunking Subsystem
+[R-SUB-2090-8222]    Business Rule: Verify and fail discovery if Site_ID value is already in use 
+[R-SUB-2090-8244]    Transcoder Unique at non-Tsub locations within a System
+[R-SUB-2090-8432]    Business Rule: Change Tsub_ID 0 value to Null 
+[R-SUB-2090-8438]    Business Rule: Send 0 value instead of default Null value for Tsub_ID
+[R-SUB-2090-8439]    Business Rule: Send 0 value instead of default Null value for Tsub_ID
+[R-SUB-2605-1524]    FDMA to TDMA 1st Packet Tanscoding Delay (Normal or Late Entry)
+[R-SUB-2605-1526]    TDMA to FDMA 1st Packet Transcoding Delay - Normal Entry
+[R-SUB-2605-1527]    TDMA to FDMA 1st Packet Transcoding Delay - Late Entry
+[R-SUB-2605-1529]    Transcoder Packet Loss
+[R-SYS-2016-3619]    Subscriber sourced analog conventional truncation
+[R-SYS-2016-3620]    Subscriber to Vortex console analog conventional  audio throughput delay
+[R-SYS-2016-3621]    Subscriber to Vortex console analog conventional system access time
+[R-SYS-2016-4486]    Throughput Delay - Non-Simulcast FDMA-to-TDMA
+[R-SYS-2016-4589]    Tsub Voice Call Dependability
+[R-SYS-2016-4590]    RF Site Voice Restoration for Tsub Going to Local Mode
+[R-SYS-2016-4591]    Console Voice Restoration for Tsub Going to Local Mode
+[R-SYS-2016-4592]    CCGW Sites Voice Restoration for Tsub Going to Local Mode
+[R-SYS-2016-4593]    RF Site Voice Restoration for Tsub Returning to Wide Area
+[R-SYS-2016-4594]    Console Site Voice Restoration for Tsub Returning to Wide Area
+[R-SYS-2016-4595]    CCGW Sites Voice Restoration for Tsub Returning to Wide Area
