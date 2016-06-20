@@ -7,20 +7,21 @@ then
     echo "File is not readable!"
 fi
 
-longest_line_lenght=0
-longest_line=""
-
 oldIFS=$IFS
 IFS=$'\n'
 for line in `cat $file`
 do
-    line_lenght=`echo $line | wc -c`
-    if [ $longest_line_lenght -lt $line_lenght ]
-    then
-        longest_line_lenght=$line_lenght
-        longest_line=$line
-    fi
+    IFS=$oldIFS
+    wordcounter=0
+    for word in $line
+    do
+        wordcounter=`expr $wordcounter + 1`
+        if [ `expr $wordcounter % 2` -eq 1 ]
+        then
+            printf "$word "
+        fi
+    done
+    printf "\n"
+    IFS=$'\n'
 done
 IFS=$oldIFS
-
-echo "$longest_line_lenght - $longest_line"

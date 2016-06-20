@@ -1,1 +1,5 @@
-http://ynonperek.com/course/unix/lab.html - Part 6: Functions
+http://ynonperek.com/course/unix/lab.html
+Part 6: Functions
+
+http://ynonperek.com/courses/basic-perl/re-ex.html
+Write a program to read a file and print lines containing only numbers
