@@ -1,5 +1,7 @@
 http://ynonperek.com/course/unix/lab.html
 Part 6: Functions
 
-http://regexone.com/problem/matching_emails
+http://www.rexegg.com/regex-quickstart.html
 https://regex101.com/
+https://regexcrossword.com/
+http://regex.alf.nu/0
